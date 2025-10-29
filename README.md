@@ -1,8 +1,24 @@
 ## Removes files and folders by moving them to the Trash, with automatic versioning if an item with the same name already exists
 
-This zsh script works in macOS Tahoe and replace the ```rm``` terminal command with ``` alias rm='trash' ```
+This zsh script works in macOS Tahoe and overrides the ```rm``` terminal command with ``` alias rm='rm_with_trash'```, ensuring files are moved to the Trash instead of being permanently deleted
 
 <img width="142" height="184" alt="image" src="https://github.com/user-attachments/assets/1f5d95a3-be1a-45b0-9cc7-9d6259beb8be" />
+<br><br>
+
+These commands were executed to produce the output shown in the image
+
+```bash
+cd ~
+
+mkdir folder1; cd folder1; mkdir folder2; cd folder2; touch Test-file; cd ~
+rm -r folder 1
+
+mkdir folder1; cd folder1; mkdir folder2; cd folder2; touch Test-file; cd ~
+rm -r folder 1
+
+mkdir folder1; cd folder1; mkdir folder2; cd folder2; touch Test-file; cd ~
+rm -r folder 1
+```
 
 ### How to use it
 
