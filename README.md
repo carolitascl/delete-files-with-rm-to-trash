@@ -22,7 +22,7 @@ rm -r folder 1
 
 ### How to use it
 
-### For zsh
+#### For zsh
 > 1. Open the terminal
 > 2. Copy the script once at the end of the ``` ~/.zshrc ``` file
 > 3. Run the following command once: ``` source ~/.zshrc ```
