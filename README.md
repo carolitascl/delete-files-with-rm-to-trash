@@ -1,6 +1,6 @@
 ## Removes files and folders by moving them to the Trash, with automatic versioning if an item with the same name already exists
 
-This zsh script works in macOS Tahoe and overrides the ```rm``` terminal command with ``` alias rm='rm_with_trash'```, ensuring files are moved to the Trash instead of being permanently deleted.
+This zsh/bash script works in macOS Tahoe and overrides the ```rm``` terminal command with ``` alias rm='rm_with_trash'```, ensuring files are moved to the Trash instead of being permanently deleted.
 
 <img width="142" height="184" alt="image" src="https://github.com/user-attachments/assets/1f5d95a3-be1a-45b0-9cc7-9d6259beb8be" />
 <br><br>
@@ -22,9 +22,17 @@ rm -r folder 1
 
 ### How to use it
 
+## For zsh
 > 1. Open the terminal
 > 2. Copy the script once at the end of the ``` ~/.zshrc ``` file
 > 3. Run the following command once: ``` source ~/.zshrc ```
+> 4. Create an example folder, delete it and review the Trash
+> 5. Create again the same folder, delete it, and review the Trash. Do this many times
+
+## For bash
+> 1. Open the terminal
+> 2. Copy the script once at the end of the ``` ~/.bashrc ``` file
+> 3. Run the following command once: ``` source ~/.bashrc ```
 > 4. Create an example folder, delete it and review the Trash
 > 5. Create again the same folder, delete it, and review the Trash. Do this many times
 
@@ -131,12 +139,12 @@ rm_with_trash() {
   for item in "${items[@]}"; do
     # Validate special paths
     if [ "$item" = "/" ] || [ "$item" = "." ] || [ "$item" = ".." ]; then
-      echo "\nWarning: Can not delete '$item'" >&2
+      echo -e "\nWarning: Can not delete '$item'" >&2
       continue
     fi
     
     if [ ! -e "$item" ] && [ ! -L "$item" ]; then
-      echo "\nWarning: Can not delete '$item'. No such file or folder" >&2
+      echo -e "\nWarning: Can not delete '$item'. No such file or folder" >&2
       # With -f flag, continue processing other files without returning error
       continue
     fi
@@ -144,7 +152,7 @@ rm_with_trash() {
     # Check if item is a folder
     if [ -d "$item" ]; then
       if [ "$recursive" = false ] && [ "$delete_dirs" = false ]; then
-        echo "\nWarning: Can not delete '$item'. Is a folder" >&2
+        echo -e "\nWarning: Can not delete '$item'. Is a folder" >&2
         continue
       fi
       
@@ -152,7 +160,7 @@ rm_with_trash() {
       if [ "$delete_dirs" = true ] && [ "$recursive" = false ]; then
         # Check if folder is empty
         if [ -n "$(find "$item" -maxdepth 1 -type f -o -type d -not -name "$item")" ]; then
-          echo "\nWarning: Can not delete folder '$item'. It is not empty" >&2
+          echo -e "\nWarning: Can not delete folder '$item'. It is not empty" >&2
           continue
         fi
       fi
@@ -199,18 +207,18 @@ rm_with_trash() {
           find "$item" -print | sort -r
         fi
         if ! /bin/rm -rf "$item" 2>/dev/null; then
-          echo "\nWarning: Failed to delete folder '$item'" >&2
+          echo -e "\nWarning: Failed to delete folder '$item'" >&2
           # If failed to delete original, delete the copied files from trash
           if /bin/rm -rf "$dir_final_name" 2>/dev/null; then
-            echo "\nWarning: Folder $dir_final_name was deleted from the trash due to an error while deleting original folder"
+            echo -e "\nWarning: Folder $dir_final_name was deleted from the trash due to an error while deleting original folder"
           else
-            echo "\nWarning: Failed to delete the folder $dir_final_name from the trash due to an error removing the original folder" >&2
+            echo -e "\nWarning: Failed to delete the folder $dir_final_name from the trash due to an error removing the original folder" >&2
           fi
         else
-          echo "\nFolder succesfully deleted" >&2
+          echo -e "\nFolder succesfully deleted" >&2
         fi
       else
-        echo "\nWarning: Failed to copy folder to trash before deleting it" >&2
+        echo -e "\nWarning: Failed to copy folder to trash before deleting it" >&2
       fi
     else
       # It's a file
@@ -248,18 +256,18 @@ rm_with_trash() {
           echo "$item"
         fi
         if ! /bin/rm -f "$item" 2>/dev/null; then
-          echo "\nWarning: Failed to delete file '$item'" >&2
+          echo -e "\nWarning: Failed to delete file '$item'" >&2
           # If failed to delete original, delete the copied file from trash
           if /bin/rm -f "$final_name" 2>/dev/null; then
-            echo "\nWarning: File $final_name was deleted from the trash due to an error while deleting the original file"
+            echo -e "\nWarning: File $final_name was deleted from the trash due to an error while deleting the original file"
           else
-            echo "\nWarning: Failed to delete the file $final_name from the trash due to an error removing the original file" >&2
+            echo -e "\nWarning: Failed to delete the file $final_name from the trash due to an error removing the original file" >&2
           fi
         else
-         echo "\nFile succesfully deleted" >&2
+         echo -e "\nFile succesfully deleted" >&2
         fi
       else
-        echo "\nWarning: Failed to copy file to trash before deleting it" >&2
+        echo -e "\nWarning: Failed to copy file to trash before deleting it" >&2
       fi
     fi
   done
