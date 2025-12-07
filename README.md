@@ -40,13 +40,25 @@ rm -r folder 1
 
 Add the following configuration to `settings.json`
 
+#### For zsh terminal
+
+```
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh"      
+    }
+  }
+```
+
+#### For bash terminal
+
 ```
   "terminal.integrated.defaultProfile.osx": "bash",
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "/bin/bash",
-      "args": ["-i"],
-      "icon": "terminal-bash"
+      "args": ["-i"]
     }
   }
 ```
