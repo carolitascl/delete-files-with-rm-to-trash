@@ -36,6 +36,20 @@ rm -r folder 1
 > 4. Create an example folder, delete it and review the Trash
 > 5. Create again the same folder, delete it, and review the Trash. Do this many times
 
+#### For VScode
+
+Add the following configuration to `settings.json`
+
+```
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["-i"],
+      "icon": "terminal-bash"
+    }
+  }
+```
+
 <br>
 
 ```bash
