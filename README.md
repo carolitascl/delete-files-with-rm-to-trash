@@ -22,21 +22,21 @@ rm -r folder 1
 
 ### How to use it
 
-#### In zsh
+#### With zsh
 > 1. Open the terminal
 > 2. Copy the script once at the end of the ``` ~/.zshrc ``` file
 > 3. Run the following command once: ``` source ~/.zshrc ```
 > 4. Create an example folder, delete it and review the Trash
 > 5. Create again the same folder, delete it, and review the Trash. Do this many times
 
-#### In bash
+#### With bash
 > 1. Open the terminal
 > 2. Copy the script once at the end of the ``` ~/.bashrc ``` file
 > 3. Run the following command once: ``` source ~/.bashrc ```
 > 4. Create an example folder, delete it and review the Trash
 > 5. Create again the same folder, delete it, and review the Trash. Do this many times
 
-#### In VS Code
+#### With VS Code
 
 Add the following configuration to `settings.json`
 
