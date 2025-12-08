@@ -297,7 +297,7 @@ alias rm='rm_with_trash'
 
 <br>
 
-### In VS Code with Coding AI Agent
+### In VS Code with AI Coding Agent
 
 <br>
 
