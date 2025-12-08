@@ -1,5 +1,7 @@
 ## Removes files and folders by moving them to the Trash, with automatic versioning if an item with the same name already exists
 
+<br>
+
 This zsh/bash script works in macOS Tahoe and overrides the ```rm``` terminal command with ``` alias rm='rm_with_trash'```, ensuring files are moved to the Trash instead of being permanently deleted.
 
 <img width="142" height="184" alt="image" src="https://github.com/user-attachments/assets/1f5d95a3-be1a-45b0-9cc7-9d6259beb8be" />
@@ -20,7 +22,10 @@ mkdir folder1; cd folder1; mkdir folder2; cd folder2; touch Test-file; cd ~
 rm -r folder 1
 ```
 
+<br>
+
 ### How to use it
+---
 
 #### In zsh
 > 1. Open the terminal
@@ -35,33 +40,6 @@ rm -r folder 1
 > 3. Run the following command once: ``` source ~/.bashrc ```
 > 4. Create an example folder, delete it and review the Trash
 > 5. Create again the same folder, delete it, and review the Trash. Do this many times
-
-#### In VS Code
-
-Add the following configuration to `settings.json`
-
-#### For zsh terminal
-
-```
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.profiles.osx": {
-    "zsh": {
-      "path": "/bin/zsh"      
-    }
-  }
-```
-
-#### For bash terminal
-
-```
-  "terminal.integrated.defaultProfile.osx": "bash",
-  "terminal.integrated.profiles.osx": {
-    "bash": {
-      "path": "/bin/bash",
-      "args": ["-i"]
-    }
-  }
-```
 
 <br>
 
@@ -315,4 +293,36 @@ alias rm='rm_with_trash'
 # rm file1.txt file2.txt         # Delete both files
 # rm -i *.log                    # Prompts for each .log file
 # Result: file.txt, file (1).txt, file (2).txt when deleted multiple times
+```
+
+<br>
+
+### In VS Code with Coding AI Agent
+---
+
+<br>
+
+Add the following configuration to `settings.json`
+
+> #### For zsh
+
+```
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh"      
+    }
+  }
+```
+
+> #### For bash
+
+```
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["-i"]
+    }
+  }
 ```
