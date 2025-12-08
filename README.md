@@ -298,15 +298,14 @@ alias rm='rm_with_trash'
 <br>
 
 ### In VS Code with Coding AI Agent
----
 
 <br>
 
-Add the following configuration to `settings.json`
+> Add the following configuration to the end of `settings.json`. This file can be accessed via Cmd-Shift-P and selecting `Preferences: Open User Settings (JSON)`
 
-> #### For zsh
+#### For zsh
 
-```
+```json
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.profiles.osx": {
     "zsh": {
@@ -315,9 +314,9 @@ Add the following configuration to `settings.json`
   }
 ```
 
-> #### For bash
+#### For bash
 
-```
+```json
   "terminal.integrated.defaultProfile.osx": "bash",
   "terminal.integrated.profiles.osx": {
     "bash": {
