@@ -1,4 +1,4 @@
-## Removes files and folders by moving them to the Trash, with automatic versioning if an item with the same name already exists
+## Removes files and folders by moving them to Trash, with automatic versioning if an item with the same name already exists
 
 <br>
 
